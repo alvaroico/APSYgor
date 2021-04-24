@@ -43,7 +43,7 @@ public class ButtonFrame2 extends JFrame{
 			CorridaDAO pdao = new CorridaDAO();
 			Stack<String> STACK = new Stack<String>();
 			for (Corrida p : pdao.read()) {
-				STACK.push(p.getDescricao());
+				STACK.push(p.getTempo_Total());
 			};
 
 			JList list = new JList(STACK);

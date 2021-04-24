@@ -11,48 +11,48 @@
  */
 public class Corrida {
     
-    private int id;
-    private String descricao;
-    private int qtd;
-    private double preco;
+    private int carro;
+    private String tempo_v1;
+    private String tempo_v2;
+    private String tempo_Total;
 
-    public int getId() {
-        return id;
+    public int getCarro() {
+        return carro;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCarro(int carro) {
+        this.carro = carro;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getTempo_v1() {
+        return tempo_v1;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setTempo_v1(String tempo_v1) {
+        this.tempo_v1 = tempo_v1;
     }
 
-    public int getQtd() {
-        return qtd;
+    public String getTempo_v2() {
+        return tempo_v2;
     }
 
-    public void setQtd(int qtd) {
-        this.qtd = qtd;
+    public void setTempo_v2(String tempo_v2) {
+        this.tempo_v2 = tempo_v2;
     }
 
-    public double getPreco() {
-        return preco;
+    public String getTempo_Total() {
+        return tempo_Total;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
-    } 
-
-    @Override
-    public String toString() {
-        return getDescricao(); //To change body of generated methods, choose Tools | Templates.
+    public void setTempo_Total(String tempo_Total) {
+        this.tempo_Total = tempo_Total;
     }
     
+    @Override
+    public String toString() {
+        return getTempo_v1(); //To change body of generated methods, choose Tools | Templates.
+    }
+      
     
     
 }

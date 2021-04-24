@@ -28,9 +28,9 @@ public class CorridaDAO {
 
         try {
             stmt = con.prepareStatement("INSERT INTO produto (descrição,qtd,preço)VALUES(?,?,?)");
-            stmt.setString(1, p.getDescricao());
-            stmt.setInt(2, p.getQtd());
-            stmt.setDouble(3, p.getPreco());
+            // stmt.setString(1, p.getDescricao());
+            // stmt.setInt(2, p.getQtd());
+            // stmt.setDouble(3, p.getPreco());
 
             stmt.executeUpdate();
 
@@ -60,11 +60,11 @@ public class CorridaDAO {
 
                 Corrida produto = new Corrida();
 
-                produto.setId(rs.getInt("id"));
-                produto.setDescricao(rs.getString("descricao"));
-                produto.setQtd(rs.getInt("qtd"));
-                produto.setPreco(rs.getDouble("preco"));
-                produtos.add(produto);
+            //     produto.setId(rs.getInt("id"));
+            //     produto.setDescricao(rs.getString("descricao"));
+            //     produto.setQtd(rs.getInt("qtd"));
+            //     produto.setPreco(rs.getDouble("preco"));
+            //     produtos.add(produto);
             }
 
         } catch (SQLException ex) {
@@ -95,10 +95,10 @@ public class CorridaDAO {
 
                 Corrida produto = new Corrida();
 
-                produto.setId(rs.getInt("id"));
-                produto.setDescricao(rs.getString("descricao"));
-                produto.setQtd(rs.getInt("qtd"));
-                produto.setPreco(rs.getDouble("preco"));
+                produto.setCarro(rs.getInt("id"));
+                produto.setTempo_v1(rs.getString("Tempo 1"));
+                produto.setTempo_v2(rs.getString("Tempo 2"));
+                produto.setTempo_Total(rs.getString("Tempo Total"));
                 produtos.add(produto);
             }
 
@@ -119,11 +119,11 @@ public class CorridaDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE produto SET descricao = ? ,qtd = ?,preco = ? WHERE id = ?");
-            stmt.setString(1, p.getDescricao());
-            stmt.setInt(2, p.getQtd());
-            stmt.setDouble(3, p.getPreco());
-            stmt.setInt(4, p.getId());
+            // stmt = con.prepareStatement("UPDATE produto SET descricao = ? ,qtd = ?,preco = ? WHERE id = ?");
+            // stmt.setString(1, p.getDescricao());
+            // stmt.setInt(2, p.getQtd());
+            // stmt.setDouble(3, p.getPreco());
+            // stmt.setInt(4, p.getId());
 
             stmt.executeUpdate();
 
@@ -142,8 +142,8 @@ public class CorridaDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM produto WHERE id = ?");
-            stmt.setInt(1, p.getId());
+            // stmt = con.prepareStatement("DELETE FROM produto WHERE id = ?");
+            // stmt.setInt(1, p.getId());
 
             stmt.executeUpdate();
 
