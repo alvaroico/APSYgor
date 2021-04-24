@@ -36,7 +36,23 @@ public class ButtonFrame2 extends JFrame{
 		//TRATA EVENTO DO BOTÃO
 		public void actionPerformed(ActionEvent event)
 		{
-			JOptionPane.showMessageDialog(ButtonFrame2.this, String.format("Você pressionou: %s", event.getActionCommand()));
+
+			ProdutoDAO pdao = new ProdutoDAO();
+
+			for (Produto p : pdao.read()) {
+
+			JOptionPane.showMessageDialog(ButtonFrame2.this, String.format("Você pressionou: %s", p.getId()));
+
+	
+				// modelo.addRow(new Object[]{
+				// 	p.getId(),
+				// 	p.getDescricao(),
+				// 	p.getQtd(),
+				// 	p.getPreco()
+				// });
+	
+			}
+
 		}
 	}
 }

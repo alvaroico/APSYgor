@@ -29,7 +29,7 @@ public class ConnectionFactory {
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, USER, PASS);
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new RuntimeException("Erro na conexão: ", ex);
+            throw new RuntimeException("Erro na conexãoooooo: ", ex);
         }
     }
 
