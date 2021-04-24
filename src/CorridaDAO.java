@@ -18,16 +18,16 @@ import javax.swing.JOptionPane;
  *
  * @author Samuelson
  */
-public class ProdutoDAO {
+public class CorridaDAO {
 
-    public void create(Produto p) {
+    public void create(Corrida p) {
         
         Connection con = ConnectionFactory.getConnection();
         
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO produto (descricao,qtd,preco)VALUES(?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO produto (descrição,qtd,preço)VALUES(?,?,?)");
             stmt.setString(1, p.getDescricao());
             stmt.setInt(2, p.getQtd());
             stmt.setDouble(3, p.getPreco());
@@ -43,14 +43,14 @@ public class ProdutoDAO {
 
     }
 
-    public List<Produto> read() {
+    public List<Corrida> read() {
 
         Connection con = ConnectionFactory.getConnection();
         
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<Produto> produtos = new ArrayList<>();
+        List<Corrida> produtos = new ArrayList<>();
 
         try {
             stmt = con.prepareStatement("SELECT * FROM aps.produto");
@@ -58,7 +58,7 @@ public class ProdutoDAO {
 
             while (rs.next()) {
 
-                Produto produto = new Produto();
+                Corrida produto = new Corrida();
 
                 produto.setId(rs.getInt("id"));
                 produto.setDescricao(rs.getString("descricao"));
@@ -68,7 +68,7 @@ public class ProdutoDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CorridaDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -76,14 +76,14 @@ public class ProdutoDAO {
         return produtos;
 
     }
-    public List<Produto> readForDesc(String desc) {
+    public List<Corrida> readForDesc(String desc) {
 
         Connection con = ConnectionFactory.getConnection();
         
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<Produto> produtos = new ArrayList<>();
+        List<Corrida> produtos = new ArrayList<>();
 
         try {
             stmt = con.prepareStatement("SELECT * FROM produto WHERE descricao LIKE ?");
@@ -93,7 +93,7 @@ public class ProdutoDAO {
 
             while (rs.next()) {
 
-                Produto produto = new Produto();
+                Corrida produto = new Corrida();
 
                 produto.setId(rs.getInt("id"));
                 produto.setDescricao(rs.getString("descricao"));
@@ -103,7 +103,7 @@ public class ProdutoDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CorridaDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -112,7 +112,7 @@ public class ProdutoDAO {
 
     }
 
-    public void update(Produto p) {
+    public void update(Corrida p) {
 
         Connection con = ConnectionFactory.getConnection();
         
@@ -135,7 +135,7 @@ public class ProdutoDAO {
         }
 
     }
-    public void delete(Produto p) {
+    public void delete(Corrida p) {
 
         Connection con = ConnectionFactory.getConnection();
         

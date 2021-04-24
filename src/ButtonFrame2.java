@@ -40,9 +40,9 @@ public class ButtonFrame2 extends JFrame{
 		public void actionPerformed(ActionEvent event)
 		{
 
-			ProdutoDAO pdao = new ProdutoDAO();
+			CorridaDAO pdao = new CorridaDAO();
 			Stack<String> STACK = new Stack<String>();
-			for (Produto p : pdao.read()) {
+			for (Corrida p : pdao.read()) {
 				STACK.push(p.getDescricao());
 			};
 

@@ -9,7 +9,7 @@
  *
  * @author Samuelson
  */
-public class Produto {
+public class Corrida {
     
     private int id;
     private String descricao;
