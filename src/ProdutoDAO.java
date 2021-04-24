@@ -54,7 +54,7 @@ public class ProdutoDAO {
         List<Produto> produtos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM produto");
+            stmt = con.prepareStatement("SELECT * FROM aps.produto");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
