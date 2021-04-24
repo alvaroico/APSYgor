@@ -42,7 +42,7 @@ public class ButtonFrame2 extends JFrame{
 
 			for (Produto p : pdao.read()) {
 
-			JOptionPane.showMessageDialog(ButtonFrame2.this, String.format("Você pressionou: %s", p.getId()));
+			JOptionPane.showMessageDialog(ButtonFrame2.this, String.format("Você pressionou: %s", p.getDescricao()));
 
 	
 				// modelo.addRow(new Object[]{
