@@ -1,10 +1,11 @@
-package src;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Stack;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 public class ButtonFrame2 extends JFrame{
@@ -29,6 +30,7 @@ public class ButtonFrame2 extends JFrame{
 		botaoOuro.addActionListener(handler);
 		botaoPrata.addActionListener(handler);
 
+
 	}
 
 	//CLASSE INTERNA PARA TRATAMENTO DO BOTÃO
@@ -39,20 +41,19 @@ public class ButtonFrame2 extends JFrame{
 		{
 
 			ProdutoDAO pdao = new ProdutoDAO();
-
+			Stack<String> STACK = new Stack<String>();
 			for (Produto p : pdao.read()) {
+				STACK.push(p.getDescricao());
+			};
 
-			JOptionPane.showMessageDialog(ButtonFrame2.this, String.format("Você pressionou: %s", p.getDescricao()));
+			JList list = new JList(STACK);
+			
+			ListDialog dialog = new ListDialog("Selecione a volta para ver os detalhes: ", list);
+			dialog.setOnOk(e -> System.out.println("Chosen item: " + dialog.getSelectedItem()));
+			dialog.show();
 
-	
-				// modelo.addRow(new Object[]{
-				// 	p.getId(),
-				// 	p.getDescricao(),
-				// 	p.getQtd(),
-				// 	p.getPreco()
-				// });
-	
-			}
+			JOptionPane.showMessageDialog(ButtonFrame2.this, String.format("Você pressionou: %s", dialog.getSelectedItem()));
+
 
 		}
 	}
